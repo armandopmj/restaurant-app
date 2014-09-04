@@ -23,25 +23,6 @@ angular.module('starter.controllers', ['starter.services'])
   // // clear watch
   // $cordovaGeolocation.clearWatch(watch.watchID)
 
-<<<<<<< HEAD
-=======
-.controller('PushCtrl', function($scope, $stateParams, $cordovaPush) {
-  $scope.sendPush = function() {
-    $cordovaPush.register("someData"); //D: this is for debugging
-    console.log("In Push Controller");
-  }
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
->>>>>>> Start Push Notifications
 })
 
 .controller('RestaurantCtrl', function($scope, Restaurant) {
