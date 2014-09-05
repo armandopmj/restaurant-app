@@ -29,7 +29,21 @@ var router = function(request, response) {
       sendResponse(response, reply, status);
     }
   } else if (method === 'POST') {
-    sendResponse(response, reply, status);
+    
+      // D: For receiving data
+      var data = { results: [] }, final_message = '';
+      
+      request.on('data', function( chunk ) {
+        final_message += chunk;
+      });
+
+      request.on('end', function() {
+        final_message = JSON.parse( final_message );
+        console.log(final_message);
+
+      })
+
+    // sendResponse(response, reply, status);
   } else {
     status = 404;
     reply = "Bad page";
@@ -56,7 +70,7 @@ Publish Messages
 --------------------------------------------------------------------------- */
 var message = { "some" : "data" };
 pubnub.publish({ 
-    channel   : 'my_channel',
+    channel   : 'r0',
     message   : message,
     callback  : function(e) { console.log( "SUCCESS!", e ); },
     error     : function(e) { console.log( "FAILED! RETRY PUBLISH!", e ); }
@@ -66,7 +80,7 @@ pubnub.publish({
 // Listen for Messages
 // --------------------------------------------------------------------------- 
 pubnub.subscribe({
-    channel  : "my_channel",
+    channel  : "r0",
     callback : function(message) {
         console.log( " > ", message );
     }
@@ -78,7 +92,7 @@ Type Console Message
 var stdin = process.openStdin();
 stdin.on( 'data', function(chunk) {
     pubnub.publish({
-        channel : "my_channel",
+        channel : "r0",
         message : ''+chunk
     });
 });
