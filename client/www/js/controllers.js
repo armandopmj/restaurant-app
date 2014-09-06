@@ -15,6 +15,7 @@ angular.module('starter.controllers', ['starter.services'])
   // invoked after submitting search criteria form
   $scope.getSearchResults = Customer.getSearchResults;
   $scope.chooseRestaurant = Customer.chooseRestaurant;
+  $scope.IR = Customer.IR;
 
   // // begin watching
   // var watch = $cordovaGeolocation.watchPosition({ frequency: 1000 });
