@@ -159,7 +159,7 @@ angular.module('starter.services', ['ngCordova'])
 
     pubnub.subscribe({
       channel: customer_channel,
-      message: function(m){ console.log( m );}
+      message: function( m ){ console.log( m ); }
     });
 
     console.log('chosen restaurant ID:', restaurantID);
